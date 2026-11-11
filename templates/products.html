@@ -1,0 +1,152 @@
+
+{% extends "base.html" %}
+{% block title %}All Sweets | Royal Mithaas{% endblock %}
+
+{% block content %}
+
+<section class="inner-banner">
+    <div class="container text-center">
+        <h1>Our Delicious Sweets</h1>
+        <p>Discover your favourite Indian sweets.</p>
+    </div>
+</section>
+
+<section class="products-section">
+<div class="container">
+
+    <!-- Search -->
+    <div class="search-area mb-4">
+        <input type="text" id="sweetSearch"
+               class="form-control"
+               placeholder="Search your favourite sweet...">
+    </div>
+
+    <!-- All Sweets -->
+    <div class="row g-4" id="sweetList">
+
+        {% set sweets = [
+
+            ('Kaju Katli', 'Dry Fruits', 450, 'https://www.google.com/imgres?q=kaju%20katli&imgurl=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fa%2Fac%2FKaju_katli_sweet.jpg%3Futm_source%3Den.wikipedia.org%26utm_campaign%3Dindex%26utm_content%3Doriginal&imgrefurl=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FKaju_katli&docid=uF1kEgy_yEoZuM&tbnid=EZFebQkVfaM6SM&vet=12ahUKEwiXirawh4CYAxUbyDgGHYxANF4QnPAOegQIUhAA..i&w=2000&h=1500&hcb=2&ved=2ahUKEwiXirawh4CYAxUbyDgGHYxANF4QnPAOegQIUhAA.jpg', 'Rich and delicious cashew sweet'),
+            ('Motichoor Ladoo', 'Traditional', 300, 'PASTE_IMAGE_URL_HERE', 'Soft and sweet traditional dessert'),
+            ('Gulab Jamun', 'Bengali Sweets', 250, 'PASTE_IMAGE_URL_HERE', 'Soft sweet balls in sugar syrup'),
+            ('Rasgulla', 'Bengali Sweets', 220, 'PASTE_IMAGE_URL_HERE', 'Soft and spongy Bengali sweet'),
+            ('Rasmalai', 'Bengali Sweets', 350, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShIAtELja5XzhwPrwmfQZkdJamY9BXWFGYtkhkGiublQ&s=10', 'Soft paneer in creamy milk'),
+            ('Cham Cham', 'Bengali Sweets', 280, 'PASTE_IMAGE_URL_HERE', 'Delicious Bengali speciality'),
+            ('Sandesh', 'Bengali Sweets', 320, 'PASTE_IMAGE_URL_HERE', 'Traditional Bengali milk sweet'),
+            ('Rajbhog', 'Bengali Sweets', 350, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSbC5C08B4rA995kDRydu_ivzKGEaXxZGeGvEmHYOg6jw&s=10', 'Royal stuffed Bengali sweet'),
+            ('Pantua', 'Bengali Sweets', 280, 'PASTE_IMAGE_URL_HERE', 'Soft and juicy Bengali sweet'),
+            ('Chhena Murki', 'Bengali Sweets', 300, 'PASTE_IMAGE_URL_HERE', 'Small pieces of sweetened chhena'),
+            ('Malai Chop', 'Bengali Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Creamy Bengali milk sweet'),
+            ('Kheer Kadam', 'Bengali Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Delicious layered milk sweet'),
+            ('Besan Ladoo', 'Traditional', 280, 'PASTE_IMAGE_URL_HERE', 'Made with roasted gram flour'),
+            ('Boondi Ladoo', 'Traditional', 260, 'PASTE_IMAGE_URL_HERE', 'Sweet and tasty boondi ladoo'),
+            ('Milk Peda', 'Milk Sweets', 320, 'PASTE_IMAGE_URL_HERE', 'Delicious traditional milk peda'),
+            ('Kesar Peda', 'Milk Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Flavoured with saffron'),
+            ('Balushahi', 'Traditional', 260, 'PASTE_IMAGE_URL_HERE', 'Crispy outside and soft inside'),
+            ('Mysore Pak', 'Traditional', 300, 'PASTE_IMAGE_URL_HERE', 'Traditional ghee-rich sweet'),
+            ('Soan Papdi', 'Traditional', 200, 'PASTE_IMAGE_URL_HERE', 'Light and flaky Indian sweet'),
+            ('Kalakand', 'Milk Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Soft and creamy milk sweet'),
+
+            ('Gulab Jamun', 'Bengali Sweets', 250, 'PASTE_IMAGE_URL_HERE', 'Soft sweet balls in sugar syrup'),
+            ('Rasgulla', 'Bengali Sweets', 220, 'PASTE_IMAGE_URL_HERE', 'Soft and spongy Bengali sweet'),
+            ('Rasmalai', 'Bengali Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Soft paneer in creamy milk'),
+            ('Cham Cham', 'Bengali Sweets', 280, 'PASTE_IMAGE_URL_HERE', 'Delicious Bengali speciality'),
+            ('Sandesh', 'Bengali Sweets', 320, 'PASTE_IMAGE_URL_HERE', 'Traditional Bengali milk sweet'),
+            ('Rajbhog', 'Bengali Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Royal stuffed Bengali sweet'),
+            ('Pantua', 'Bengali Sweets', 280, 'PASTE_IMAGE_URL_HERE', 'Soft and juicy Bengali sweet'),
+            ('Chhena Murki', 'Bengali Sweets', 300, 'PASTE_IMAGE_URL_HERE', 'Small pieces of sweetened chhena'),
+            ('Malai Chop', 'Bengali Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Creamy Bengali milk sweet'),
+            ('Kheer Kadam', 'Bengali Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Delicious layered milk sweet'),
+
+            ('Kaju Roll', 'Dry Fruits', 500, 'PASTE_IMAGE_URL_HERE', 'Premium cashew roll'),
+            ('Pista Barfi', 'Dry Fruits', 480, 'PASTE_IMAGE_URL_HERE', 'Rich pistachio sweet'),
+            ('Anjeer Barfi', 'Dry Fruits', 550, 'PASTE_IMAGE_URL_HERE', 'Made with figs and dry fruits'),
+            ('Dry Fruit Ladoo', 'Dry Fruits', 550, 'PASTE_IMAGE_URL_HERE', 'Healthy and tasty dry fruit ladoo'),
+            ('Coconut Barfi', 'Dry Fruits', 250, 'PASTE_IMAGE_URL_HERE', 'Sweet coconut barfi'),
+            ('Badam Katli', 'Dry Fruits', 500, 'PASTE_IMAGE_URL_HERE', 'Rich almond sweet'),
+            ('Kesar Katli', 'Dry Fruits', 480, 'PASTE_IMAGE_URL_HERE', 'Cashew sweet with saffron flavour'),
+            ('Khajur Roll', 'Dry Fruits', 450, 'PASTE_IMAGE_URL_HERE', 'Delicious date and dry fruit roll'),
+            ('Walnut Barfi', 'Dry Fruits', 550, 'PASTE_IMAGE_URL_HERE', 'Rich walnut sweet'),
+            ('Dry Fruit Kachori', 'Dry Fruits', 400, 'PASTE_IMAGE_URL_HERE', 'Crispy sweet dry fruit kachori'),
+
+            ('Jalebi', 'Festive Specials', 180, 'PASTE_IMAGE_URL_HERE', 'Crispy and juicy jalebi'),
+            ('Imarti', 'Festive Specials', 220, 'PASTE_IMAGE_URL_HERE', 'Traditional syrup-soaked sweet'),
+            ('Ghevar', 'Festive Specials', 400, 'PASTE_IMAGE_URL_HERE', 'Popular Rajasthani festive sweet'),
+            ('Moong Dal Halwa', 'Festive Specials', 350, 'PASTE_IMAGE_URL_HERE', 'Rich and delicious halwa'),
+            ('Gajar Halwa', 'Festive Specials', 200, 'PASTE_IMAGE_URL_HERE', 'Sweet carrot pudding'),
+            ('Mawa Kachori', 'Festive Specials', 400, 'PASTE_IMAGE_URL_HERE', 'Sweet stuffed kachori'),
+            ('Karachi Halwa', 'Festive Specials', 280, 'PASTE_IMAGE_URL_HERE', 'Colourful and chewy sweet'),
+            ('Milk Cake', 'Festive Specials', 350, 'PASTE_IMAGE_URL_HERE', 'Traditional caramelised milk cake'),
+            ('Shrikhand', 'Festive Specials', 180, 'PASTE_IMAGE_URL_HERE', 'Creamy and flavoured yoghurt dessert'),
+            ('Malpua', 'Festive Specials', 250, 'PASTE_IMAGE_URL_HERE', 'Soft and delicious Indian pancake'),
+
+            ('Malai Barfi', 'Milk Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Creamy milk barfi'),
+            ('Mawa Barfi', 'Milk Sweets', 320, 'PASTE_IMAGE_URL_HERE', 'Traditional mawa sweet'),
+            ('Rabri', 'Milk Sweets', 180, 'PASTE_IMAGE_URL_HERE', 'Thick and creamy milk dessert'),
+            ('Basundi', 'Milk Sweets', 160, 'PASTE_IMAGE_URL_HERE', 'Sweetened thick milk dessert'),
+            ('Doodh Peda', 'Milk Sweets', 320, 'PASTE_IMAGE_URL_HERE', 'Traditional milk peda'),
+            ('Mawa Modak', 'Milk Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Sweet modak made with mawa'),
+            ('Chocolate Barfi', 'Milk Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Chocolate flavoured barfi'),
+            ('Rose Barfi', 'Milk Sweets', 320, 'PASTE_IMAGE_URL_HERE', 'Beautiful rose-flavoured sweet'),
+            ('Milk Roll', 'Milk Sweets', 350, 'PASTE_IMAGE_URL_HERE', 'Soft and delicious milk roll'),
+            ('Khoya Ladoo', 'Milk Sweets', 320, 'PASTE_IMAGE_URL_HERE', 'Traditional khoya ladoo'),
+
+            ('Adhirasam', 'South Indian', 250, 'PASTE_IMAGE_URL_HERE', 'Traditional South Indian sweet'),
+            ('Ariselu', 'South Indian', 280, 'PASTE_IMAGE_URL_HERE', 'Traditional rice and jaggery sweet'),
+            ('Boorelu', 'South Indian', 250, 'PASTE_IMAGE_URL_HERE', 'Sweet stuffed South Indian snack'),
+            ('Pootharekulu', 'South Indian', 200, 'PASTE_IMAGE_URL_HERE', 'Traditional Andhra paper sweet'),
+            ('Rava Kesari', 'South Indian', 120, 'PASTE_IMAGE_URL_HERE', 'Delicious semolina dessert'),
+            ('Coconut Ladoo', 'South Indian', 250, 'PASTE_IMAGE_URL_HERE', 'Sweet coconut ladoo'),
+            ('Modak', 'South Indian', 240, 'PASTE_IMAGE_URL_HERE', 'Traditional sweet dumpling'),
+            ('Puran Poli', 'South Indian', 100, 'PASTE_IMAGE_URL_HERE', 'Sweet stuffed Indian flatbread'),
+            ('Unni Appam', 'South Indian', 150, 'PASTE_IMAGE_URL_HERE', 'Traditional Kerala sweet'),
+            ('Payasam', 'South Indian', 120, 'PASTE_IMAGE_URL_HERE', 'Traditional Indian milk dessert')
+
+        ] %}
+
+        {% for name, category, price, image, description in sweets %}
+
+        <div class="col-md-6 col-lg-3 sweet-item">
+            <div class="product-card">
+
+                <!-- Sweet Image -->
+                <div class="product-image">
+                    <img
+                        src="{{ image }}"
+                        alt="{{ name }}"
+                        loading="lazy"
+                        onerror="this.onerror=null; this.src='https://placehold.co/600x450/f8f0e4/70452b?text=Image+Not+Available';">
+                </div>
+
+                <div class="product-info">
+
+                    <span class="sweet-category">
+                        {{ category }}
+                    </span>
+
+                    <h4>{{ name }}</h4>
+
+                    <p>{{ description }}</p>
+
+                    <h5>₹{{ price }} / 500g</h5>
+
+                    <a href="/checkout" class="product-button">
+                        Order Now
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+    <p id="noResults" class="text-center mt-4" hidden>
+        No sweets found. Try another name.
+    </p>
+
+</div>
+</section>
+
+{% endblock %}

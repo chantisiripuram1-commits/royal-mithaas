@@ -1,0 +1,50 @@
+
+{% extends "base.html" %}
+{% block title %}Login | Royal Mithaas{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+    <div class="auth-card">
+
+        <div class="auth-icon">👑</div>
+        <h2>Welcome Back!</h2>
+        <p>Login to your Royal Mithaas account.</p>
+
+        <form method="POST" action="{{ url_for('login') }}">
+
+            <div class="mb-3">
+                <label class="form-label">Email Address</label>
+                <input
+                    type="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Enter your email"
+                    required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Enter your password"
+                    required>
+            </div>
+
+            <button type="submit" class="main-button w-100">
+                Login
+            </button>
+
+        </form>
+
+        <p class="auth-footer">
+            Don't have an account?
+            <a href="{{ url_for('signup') }}">Create Account</a>
+        </p>
+
+    </div>
+</section>
+
+{% endblock %}

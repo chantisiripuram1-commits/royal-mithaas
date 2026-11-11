@@ -1,0 +1,68 @@
+
+{% extends "base.html" %}
+{% block title %}Contact Us | Royal Mithaas{% endblock %}
+
+{% block content %}
+
+<section class="inner-banner">
+    <div class="container text-center">
+        <h1>Contact Us</h1>
+        <p>We would love to hear from you!</p>
+    </div>
+</section>
+
+<section class="contact-section">
+<div class="container">
+    <div class="row g-5">
+
+        <div class="col-lg-5">
+            <h2>Get In Touch</h2>
+            <p>Have questions about our sweets or your orders? Contact us.</p>
+
+            <div class="contact-detail">
+                <span>📍</span>
+                <div><h5>Our Location</h5><p>Add your shop address here.</p></div>
+            </div>
+
+            <div class="contact-detail">
+                <span>📞</span>
+                <div><h5>Phone</h5><p>Add your contact number here.</p></div>
+            </div>
+
+            <div class="contact-detail">
+                <span>✉️</span>
+                <div><h5>Email</h5><p>Add your shop email here.</p></div>
+            </div>
+        </div>
+
+        <div class="col-lg-7">
+            <div class="form-card">
+                <h2>Send Us A Message</h2>
+
+                <form method="POST" action="#">
+                    <label class="form-label">Your Name</label>
+                    <input type="text" class="form-control mb-3"
+                           placeholder="Enter your name" required>
+
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control mb-3"
+                           placeholder="Enter your email" required>
+
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-control mb-3"
+                           placeholder="Enter subject">
+
+                    <label class="form-label">Message</label>
+                    <textarea class="form-control mb-3" rows="5"
+                              placeholder="Write your message" required></textarea>
+
+                    <button type="submit" class="main-button">Send Message →</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+{% endblock %}

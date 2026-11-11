@@ -1,0 +1,69 @@
+
+{% extends "base.html" %}
+{% block title %}Checkout | Royal Mithaas{% endblock %}
+
+{% block content %}
+
+<section class="inner-banner">
+    <div class="container text-center">
+        <h1>Checkout</h1>
+        <p>Just a few more steps to enjoy your favourite sweets.</p>
+    </div>
+</section>
+
+<section class="page-section">
+<div class="container">
+    <div class="row g-4">
+
+        <div class="col-lg-7">
+            <div class="form-card">
+                <h3>Delivery Information</h3>
+
+                <form method="POST" action="#">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control mb-3"
+                           placeholder="Enter full name" required>
+
+                    <label class="form-label">Mobile Number</label>
+                    <input type="tel" class="form-control mb-3"
+                           placeholder="Enter mobile number" required>
+
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control mb-3"
+                           placeholder="Enter email" required>
+
+                    <label class="form-label">Delivery Address</label>
+                    <textarea class="form-control mb-3" rows="3"
+                              placeholder="Enter complete address" required></textarea>
+
+                    <label class="form-label">Payment Method</label>
+
+                    <select class="form-select mb-4" required>
+                        <option value="">Select payment method</option>
+                        <option>Cash on Delivery</option>
+                        <option>UPI</option>
+                        <option>Online Payment</option>
+                    </select>
+
+                    <button type="submit" class="main-button">
+                        Place Order →
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-lg-5">
+            <div class="form-card">
+                <h3>Order Summary</h3>
+                <p>Your selected sweets will appear here.</p>
+                <hr>
+                <h5>Total: ₹0</h5>
+                <small>Connect the shopping cart to calculate the actual total.</small>
+            </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+{% endblock %}
